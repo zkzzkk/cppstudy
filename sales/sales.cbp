@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=c++11" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -33,8 +35,12 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="mygrep.cpp" />
+		<Unit filename="mygrep.h" />
 		<Unit filename="sales.cpp" />
 		<Unit filename="sales.h" />
+		<Unit filename="sales_data.txt" />
+		<Unit filename="sales_data2.txt" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -6,3 +6,11 @@ haha		123		3.14
 c++primer	53		40.5
 haha		30		10.0
 hehe		555		1.9
+c++primer	120		50.99
+hehe		50		2.4
+king_glory	333		34.14
+c++primer	18		20.3
+haha		123		3.14
+c++primer	53		40.5
+haha		30		10.0
+hehe		555		1.9
