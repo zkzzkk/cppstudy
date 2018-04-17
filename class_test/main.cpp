@@ -4,6 +4,9 @@
 #include <vector>
 #include <map>
 #include <utility>
+#include <functional>
+#include "myvec.h"
+#include "simpletestclass.h"
 
 using namespace std;
 
@@ -58,12 +61,36 @@ void rvalue_test()
     cout << "function ends! ==================\n";
 }
 
+static int do_func_call(int (*f)(int, int), int a, int b)
+{
+    return f(a, b);
+}
+static int do_func_call2(function<int(int,int)> func, int a, int b)
+{
+    return func(a, b);
+}
 
-#include "myvec.h"
+static int add(int a, int b) {return a + b;}
+static __attribute__((unused)) string add(string a, string b) {return a + b;}
+
+void callable_test()
+{
+    plus<int> intAdd;
+    cout << do_func_call(add, 3, 4) << endl;
+    cout << do_func_call([](int a, int b) {return a + b;}, 4, 2) << endl;
+    //error: cannot convert 'std::plus<int>' to 'int (*)(int, int)' for argument '1' to 'int do_func_call(int (*)(int, int), int, int)'
+    //cout << do_func_call(intAdd, 4, 2) << endl;
+    cout << do_func_call2(intAdd, 4, 2) << endl;
+    //manual resolve overloading
+    cout << do_func_call2(static_cast<int(*)(int,int)>(add), 4, 2) << endl;
+}
+
 
 int main()
 {
     //rvalue_test();
-    test_myvec();
+    //test_myvec();
+    //callable_test();
+    simple_test();
     return 0;
 }

@@ -42,6 +42,9 @@ public:
         return m_first[n];
     }
 
+    //just for test, bad example
+    explicit operator bool() const {return size();}
+
 protected:
 
 private:
