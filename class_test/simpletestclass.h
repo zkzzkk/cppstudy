@@ -37,6 +37,7 @@ protected:
 class SimpleTestInterface: public SimpleTest
 {
 public:
+    using SimpleTest::SimpleTest;
     SimpleTestInterface(const std::string v):SimpleTest(v){}
     virtual void simple_virt() override = 0;
 };
@@ -44,6 +45,7 @@ public:
 class SimpleTestDerived1: public SimpleTestInterface
 {
 public:
+    using SimpleTestInterface::SimpleTestInterface;
     SimpleTestDerived1(const std::string v, const std::string v1):SimpleTestInterface(v), d1_val(v1) {std::cout << "SimpleTestDerived1's construct: " << v1 << std::endl;}
     virtual void simple_virt() override final {std::cout << "SimpleTestDerived1's virtual: " << d1_val << std::endl;}
     void fun1() {std::cout << "SimpleTestDerived1's func1: " << d1_val << std::endl;}
@@ -55,6 +57,7 @@ public:
 class SimpleTestDerived2: public SimpleTestDerived1
 {
 public:
+    using SimpleTestDerived1::SimpleTestDerived1;
     SimpleTestDerived2(const std::string v, const std::string v1, const std::string v2):SimpleTestDerived1(v,v1),d2_val(v2) {std::cout << "SimpleTestDerived2's construct: " << v2 << std::endl;}
     virtual ~SimpleTestDerived2() {std::cout << "SimpleTestDerived2's destructor: " << d2_val << std::endl;}
 

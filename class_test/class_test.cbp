@@ -36,6 +36,7 @@
 		</Compiler>
 		<Unit filename="include/mysp.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mutiple-inherit-test.cpp" />
 		<Unit filename="myvec.cpp" />
 		<Unit filename="myvec.h" />
 		<Unit filename="simpletestclass.cpp" />

@@ -86,11 +86,33 @@ void callable_test()
 }
 
 
+#include <regex>
+void regex_test()
+{
+    regex re("[abc][xyz]", regex::icase);
+    string test_str("xxAxbYheni cy az ni");
+    smatch result;
+
+    if (regex_search(test_str, result, re))
+        cout << result.str() << endl;
+
+    sregex_iterator it(test_str.begin(), test_str.end(), re);
+    sregex_iterator endit;
+    while(it != endit) {
+        cout << it->str() << endl;
+        it++;
+    }
+}
+
+extern void multi_inherit_test();
+
 int main()
 {
     //rvalue_test();
     //test_myvec();
     //callable_test();
-    simple_test();
+    //simple_test();
+    //regex_test();
+    multi_inherit_test();
     return 0;
 }
